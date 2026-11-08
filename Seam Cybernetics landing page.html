@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Seam Cybernetics: still you, just upgraded</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Newsreader:ital,wght@1,400&display=swap">
+<style>
+:root{--bg:#e9eef3;--bg2:#fff;--tx:#101722;--mut:#4b5767;--cy:#007c86;--cyf:#00cfc0;--or:#d4411f;--line:rgba(16,23,34,.18);
+--sans:"Chakra Petch",system-ui,sans-serif;--serif:"Newsreader",Georgia,serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1118;--bg2:#131c27;--tx:#e8eef4;--mut:#93a3b5;--cy:#3ff0e6;--cyf:#3ff0e6;--or:#ff6a45;--line:rgba(63,240,230,.22)}}
+:root[data-theme="dark"]{--bg:#0b1118;--bg2:#131c27;--tx:#e8eef4;--mut:#93a3b5;--cy:#3ff0e6;--cyf:#3ff0e6;--or:#ff6a45;--line:rgba(63,240,230,.22)}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--tx);font:500 1.0625rem/1.6 var(--sans)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--cy);outline-offset:3px}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+header .wrap{display:flex;align-items:center;gap:1.25rem;height:64px}
+.brand{display:flex;align-items:center;gap:.6rem;font-weight:700;font-size:1.25rem;text-decoration:none;margin-right:auto}
+nav{display:flex;gap:1.5rem}
+nav a{text-decoration:none;color:var(--mut)}nav a:hover{color:var(--tx)}
+.btn{display:inline-block;font:700 1rem var(--sans);padding:.8rem 1.4rem;border:0;cursor:pointer;text-decoration:none;color:#06201f;background:var(--cyf);clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px))}
+.btn:hover{filter:brightness(1.1)}
+.ghost{background:var(--line);color:var(--tx)}
+.tgl{font:500 .9rem var(--sans);background:none;color:var(--tx);border:1px solid var(--line);padding:.4rem .8rem;cursor:pointer}
+.hero{padding:clamp(2rem,6vw,5rem) 0;background:linear-gradient(var(--line) 1px,transparent 1px) 0 0/100% 48px}
+.hero .wrap{display:grid;gap:2.5rem;align-items:center}
+h1{margin:0 0 1.25rem;line-height:1;font-size:clamp(2.6rem,7vw,5.2rem)}
+.hu{display:block;font:italic 400 1em var(--serif);color:var(--mut)}
+.ma{display:block;font-weight:700;letter-spacing:-.01em}
+.lead{max-width:34rem;color:var(--mut);margin:0 0 1.75rem}
+.row{display:flex;flex-wrap:wrap;gap:.8rem}
+.fig{background:var(--bg2);border:1px solid var(--line);padding:1rem;touch-action:pan-y}
+.fig svg{display:block;width:100%;max-height:60vh;cursor:ew-resize}
+.rng{display:flex;align-items:center;gap:.75rem;margin-top:.75rem;font-size:.95rem}
+.rng input{flex:1;accent-color:var(--cy);min-height:28px}
+.eye{animation:pl 2.4s ease-in-out infinite}
+@keyframes pl{50%{opacity:.45}}
+section{padding:clamp(3rem,8vw,6rem) 0}
+h2{font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.1;margin:0 0 1rem;max-width:22ch}
+.sub{color:var(--mut);max-width:40rem;margin:0 0 2rem}
+.tbl{width:100%;border-collapse:collapse;background:var(--bg2);border:1px solid var(--line)}
+.tbl th,.tbl td{padding:1rem 1.1rem;text-align:left;border-bottom:1px solid var(--line)}
+.tbl th:first-child{font-weight:500;color:var(--mut)}
+.tbl thead th{font:italic 400 1.2rem var(--serif);color:var(--mut)}
+.tbl thead th:last-child{font:700 1.1rem var(--sans);color:var(--cy)}
+.tbl td:last-child{font-weight:700}
+.aug{display:grid;gap:1.5rem}
+.tabs{display:grid;gap:.5rem}
+.tabs button{font:700 1.05rem var(--sans);text-align:left;padding:1rem 1.1rem;background:var(--bg2);color:var(--tx);border:1px solid var(--line);border-left:4px solid var(--line);cursor:pointer}
+.tabs button[aria-selected="true"]{border-left-color:var(--or);background:var(--bg)}
+.panel{background:var(--bg2);border:1px solid var(--line);padding:1.5rem}
+.panel h3{margin:0 0 .5rem;font-size:1.6rem}
+.panel p{margin:0 0 1.5rem;color:var(--mut)}
+.m{margin-bottom:1rem}
+.m div{display:flex;justify-content:space-between;font-size:.95rem;margin-bottom:.3rem}
+.bar{height:8px;background:var(--line)}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--or),var(--cyf));width:0;transition:width .6s ease}
+ol{list-style:none;counter-reset:s;margin:0;padding:0;display:grid;gap:1rem}
+ol li{counter-increment:s;background:var(--bg2);border:1px solid var(--line);padding:1.25rem 1.25rem 1.25rem 4rem;position:relative}
+ol li::before{content:counter(s);position:absolute;left:1.25rem;top:1.1rem;width:2rem;height:2rem;display:grid;place-items:center;background:var(--cyf);color:#06201f;font-weight:700}
+ol b{display:block;font-size:1.15rem}ol span{color:var(--mut)}
+.cta{background:var(--bg2);border-block:1px solid var(--line)}
+form{display:flex;flex-wrap:wrap;gap:.75rem;max-width:34rem}
+input[type=email]{flex:1 1 14rem;font:500 1rem var(--sans);padding:.8rem 1rem;background:var(--bg);color:var(--tx);border:1px solid var(--line)}
+#ok{min-height:1.6rem;margin:1rem 0 0;color:var(--cy);font-weight:700}
+footer{padding:2rem 0;color:var(--mut);font-size:.95rem}
+@media(min-width:860px){.hero .wrap{grid-template-columns:1.1fr 1fr}.aug{grid-template-columns:18rem 1fr}ol{grid-template-columns:repeat(4,1fr)}ol li{padding:4rem 1.25rem 1.25rem}ol li::before{left:1.25rem;top:1.25rem}}
+@media(max-width:720px){nav{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<a class="brand" href="#top" aria-label="Seam Cybernetics home"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><path d="M14 2a10 10 0 0 0 0 24z" fill="#e2b9a0"/><path d="M14 2a10 10 0 0 1 0 24z" fill="#3ff0e6"/><path d="M14 1v26" stroke="#ff6a45" stroke-width="2"/></svg>Seam</a>
+<nav aria-label="Primary"><a href="#compare">Compare</a><a href="#upgrades">Upgrades</a><a href="#process">Process</a></nav>
+<button class="tgl" id="tgl" type="button" aria-label="Switch colour theme">Theme</button>
+<a class="btn" href="#book">Book a consult</a>
+</div></header>
+<main id="top">
+<div class="hero"><div class="wrap">
+<div>
+<h1><span class="hu">Still you.</span><span class="ma">Just upgraded.</span></h1>
+<p class="lead">Seam builds clinical-grade cybernetic implants that blend with your body, not replace it. Drag the seam to see where human ends and machine begins.</p>
+<div class="row"><a class="btn" href="#book">Book a consult</a><a class="btn ghost" href="#upgrades">Explore upgrades</a></div>
+</div>
+<div class="fig">
+<svg id="face" viewBox="0 0 300 360" role="img" aria-label="A face split down the middle, human on the left and cybernetic on the right">
+<defs>
+<linearGradient id="st" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c3ced9"/><stop offset="1" stop-color="#5d6b7d"/></linearGradient>
+<clipPath id="cp"><rect id="cr" x="150" y="0" width="300" height="360"/></clipPath>
+</defs>
+<g>
+<path d="M30 360Q55 290 100 262Q150 285 200 262Q245 290 270 360Z" fill="#3b4a5e"/>
+<path id="hd" d="M150 20C85 20 62 75 68 135C71 175 84 205 100 225L100 262Q150 285 200 262L200 225C216 205 229 175 232 135C238 75 215 20 150 20Z" fill="#e2b9a0"/>
+<path d="M68 120C70 50 110 22 150 22C195 22 232 52 232 120C210 80 180 62 150 62C115 62 88 85 68 120Z" fill="#4a3426"/>
+<ellipse cx="115" cy="145" rx="15" ry="9" fill="#fff"/><circle cx="115" cy="145" r="6" fill="#3a2a22"/>
+<ellipse cx="185" cy="145" rx="15" ry="9" fill="#fff"/><circle cx="185" cy="145" r="6" fill="#3a2a22"/>
+<path d="M97 126Q115 118 132 126M168 126Q185 118 203 126" stroke="#4a3426" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M150 150L144 190Q150 196 158 190" stroke="#b98a70" stroke-width="3" fill="none"/>
+<path d="M126 222Q150 234 174 222" stroke="#a65a4c" stroke-width="5" fill="none" stroke-linecap="round"/>
+</g>
+<g clip-path="url(#cp)">
+<path d="M30 360Q55 290 100 262Q150 285 200 262Q245 290 270 360Z" fill="#1c2430"/>
+<path d="M68 135C62 75 85 20 150 20C215 20 238 75 232 135C229 175 216 205 200 225L200 262Q150 285 100 262L100 225C84 205 71 175 68 135Z" fill="url(#st)"/>
+<path d="M90 70Q150 40 210 70M80 112H220M100 225H200" stroke="#44515f" stroke-width="2" fill="none"/>
+<polyline points="205,190 222,190 232,178 232,150" stroke="#ff6a45" stroke-width="3" fill="none"/>
+<polyline points="195,206 214,206 224,216" stroke="#ff6a45" stroke-width="3" fill="none"/>
+<circle cx="115" cy="145" r="22" fill="#10171f"/><circle cx="115" cy="145" r="14" fill="none" stroke="#3ff0e6" stroke-width="3" stroke-dasharray="6 4"/>
+<circle class="eye" cx="115" cy="145" r="6" fill="#3ff0e6"/>
+<circle cx="185" cy="145" r="22" fill="#10171f"/><circle cx="185" cy="145" r="14" fill="none" stroke="#3ff0e6" stroke-width="3" stroke-dasharray="6 4"/>
+<circle class="eye" cx="185" cy="145" r="6" fill="#3ff0e6"/>
+<path d="M150 150L144 190Q150 196 158 190" stroke="#44515f" stroke-width="3" fill="none"/>
+<path d="M124 218H176M124 226H176M124 234H176" stroke="#10171f" stroke-width="3"/>
+</g>
+<line id="sl" x1="150" y1="0" x2="150" y2="360" stroke="#ff6a45" stroke-width="3"/>
+<circle id="sh" cx="150" cy="300" r="12" fill="#ff6a45" stroke="#fff" stroke-width="3"/>
+</svg>
+<div class="rng"><span>Human</span><input id="rg" type="range" min="0" max="100" value="50" aria-label="Move the seam between human and machine"><span>Machine</span></div>
+</div>
+</div></div>
+
+<section id="compare"><div class="wrap">
+<h2>What changes, and what stays</h2>
+<p class="sub">Your memories, voice and judgment stay yours. These are the measured differences clinical trial members report after calibration.</p>
+<div style="overflow-x:auto"><table class="tbl">
+<thead><tr><th scope="col"><span class="sr">Measure</span></th><th scope="col">Baseline</th><th scope="col">With Seam</th></tr></thead>
+<tbody>
+<tr><th scope="row">Reaction time</th><td>250 ms</td><td>40 ms</td></tr>
+<tr><th scope="row">Night vision</th><td>Limited</td><td>Thermal and low-light</td></tr>
+<tr><th scope="row">Recovery after injury</th><td>Weeks</td><td>Self-repairing plating, 48 hours</td></tr>
+<tr><th scope="row">Device control</th><td>Hands and voice</td><td>Thought, with a physical off switch</td></tr>
+</tbody></table></div>
+</div></section>
+
+<section id="upgrades" class="cta"><div class="wrap">
+<h2>Choose an upgrade to inspect</h2>
+<p class="sub">Every module is modular, removable and covered by a ten-year service plan.</p>
+<div class="aug">
+<div class="tabs" role="tablist" aria-label="Upgrades" id="tabs"></div>
+<div class="panel" id="panel" role="tabpanel" aria-live="polite"></div>
+</div>
+</div></section>
+
+<section id="process"><div class="wrap">
+<h2>From first call to first blink</h2>
+<p class="sub">Most members are home within two days and fully calibrated within a month.</p>
+<ol>
+<li><b>Consult</b><span>Meet a surgeon and an engineer. Decide what you want to keep exactly as it is.</span></li>
+<li><b>Scan</b><span>A full-body scan maps nerves, bone and tissue for a custom fit.</span></li>
+<li><b>Install</b><span>Outpatient surgery, usually under four hours, with a named care lead.</span></li>
+<li><b>Calibrate</b><span>Weekly tuning sessions until the upgrade feels like it was always there.</span></li>
+</ol>
+</div></section>
+
+<section id="book" class="cta"><div class="wrap">
+<h2>Book your consultation</h2>
+<p class="sub">Leave your email and a coordinator will reply within one working day. No payment needed.</p>
+<form id="fm"><input type="email" id="em" required placeholder="you@example.com" autocomplete="email" aria-label="Email address"><button class="btn" type="submit">Book a consult</button></form>
+<p id="ok" role="status"></p>
+</div></section>
+</main>
+<footer><div class="wrap">Seam Cybernetics is a fictional concept created for a design demo. No medical claims are made.</div></footer>
+<style>.sr{position:absolute;left:-9999px}</style>
+<script>
+var R=document.documentElement;
+document.getElementById('tgl').onclick=function(){
+  var d=R.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+  R.setAttribute('data-theme',d==='dark'?'light':'dark');
+};
+var svg=document.getElementById('face'),rg=document.getElementById('rg'),down=false;
+function setP(p){
+  p=Math.max(0,Math.min(1,p));var x=p*300;
+  document.getElementById('cr').setAttribute('x',x);
+  var l=document.getElementById('sl');l.setAttribute('x1',x);l.setAttribute('x2',x);
+  document.getElementById('sh').setAttribute('cx',x);rg.value=Math.round(p*100);
+}
+function fromEvt(e){var r=svg.getBoundingClientRect();setP((e.clientX-r.left)/r.width)}
+svg.addEventListener('pointerdown',function(e){down=true;svg.setPointerCapture(e.pointerId);fromEvt(e)});
+svg.addEventListener('pointermove',function(e){if(down)fromEvt(e)});
+svg.addEventListener('pointerup',function(){down=false});
+rg.addEventListener('input',function(){setP(rg.value/100)});
+var A=[
+{n:'Optic array',t:'See in thermal and low light, and zoom without lifting a finger.',m:[['Zoom',100,'12×'],['Latency',92,'4 ms'],['Battery',70,'3 days']]},
+{n:'Neural link',t:'Control phones, doors and software at the speed of thought.',m:[['Bandwidth',88,'1.2 Gb/s'],['Accuracy',97,'99.4%'],['Battery',80,'5 days']]},
+{n:'Dermal plating',t:'Flexible armour under the skin that shrugs off cuts and impacts.',m:[['Impact rating',85,'9 kN'],['Flexibility',75,'Natural'],['Self-repair',60,'48 hours']]},
+{n:'Kinetic limbs',t:'Arms and legs with force feedback and a natural range of motion.',m:[['Lift',90,'180 kg'],['Dexterity',95,'Fine grip'],['Battery',65,'2 days']]}];
+var tabs=document.getElementById('tabs'),panel=document.getElementById('panel');
+function show(i){
+  var a=A[i];
+  [].forEach.call(tabs.children,function(b,j){b.setAttribute('aria-selected',j===i)});
+  panel.innerHTML='<h3>'+a.n+'</h3><p>'+a.t+'</p>'+a.m.map(function(m){return '<div class="m"><div><span>'+m[0]+'</span><span>'+m[2]+'</span></div><div class="bar"><i data-w="'+m[1]+'"></i></div></div>'}).join('');
+  requestAnimationFrame(function(){requestAnimationFrame(function(){[].forEach.call(panel.querySelectorAll('i'),function(e){e.style.width=e.dataset.w+'%'})})});
+}
+A.forEach(function(a,i){
+  var b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.textContent=a.n;
+  b.onclick=function(){show(i)};tabs.appendChild(b);
+});
+show(0);
+document.getElementById('fm').addEventListener('submit',function(e){
+  e.preventDefault();
+  document.getElementById('ok').textContent='Thanks. A coordinator will email you within one working day.';
+  e.target.reset();
+});
+</script>
+</body>
+</html>
